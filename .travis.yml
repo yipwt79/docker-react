@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t yipwt/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run yipwt/docker-react npm run tst -- --coverage
